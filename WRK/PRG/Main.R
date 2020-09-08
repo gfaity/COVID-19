@@ -1,8 +1,6 @@
 #Germain FAITY - 2020
 #EuroMov - Universite de Montpellier
 
-#ToSave difference between groups
-
 #######################################################################################################################
 #Execute initialisation of this programm
 #   Clear variable
