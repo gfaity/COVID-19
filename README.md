@@ -5,7 +5,10 @@
 
 # DESCRIPTION
 Affiche quelques données du COVID-19
+"WRK/RES/NbHosp.png" est le nombre de patient hospitalise en France jour par jour
 "WRK/RES/NbRea.png" est le nombre de patient en reanimation en France jour par jour
+"WRK/RES/NbRad.png" est le nombre de patient retourne a domicile en France (cumul)
+"WRK/RES/NbDC.png" est le nombre de patient decede en France (cumul)
 
 # SOURCE DES DONNEES
 https://www.data.gouv.fr/fr/datasets/r/63352e38-d353-4b54-bfd1-f1b3ee1cabd7
@@ -22,12 +25,26 @@ Ouvrir et sourcer "/WRK/PRG/Main.R" avec R 3.6.1+
 Selectionner le jeux de donnees a analyser
 Le graphique s exporte dans le repertoire "WRK/RES"
 
+# METADONNEES
+Sexe
+	0 = femmes + hommes
+	1 = hommes
+	2 = femmes
+jour = Date de notification
+hosp = Nombre de personnes actuellement hospitalisées
+rea = Nombre de personnes actuellement en réanimation ou soins intensifs
+rad = Nombre cumulé de personnes retournées à domicile
+dc = Nombre cumulé de personnes décédées
+
 
 ############ENGLISH############
 
 # DESCRIPTION
 Plotting some data from COVID-19
-"WRK/RES/NbRea.png" is Number of patients in reanimation in France day by day
+"WRK/RES/NbHosp.png" is number of patients hospitalized in France day by day
+"WRK/RES/NbRea.png" is number of patients in reanimation in France day by day
+"WRK/RES/NbRad.png" is number of patients returned home in France (total)
+"WRK/RES/NbDC.png" is number of deaths in France (total)
 
 # DATA SOURCE
 https://www.data.gouv.fr/fr/datasets/r/63352e38-d353-4b54-bfd1-f1b3ee1cabd7
@@ -43,3 +60,14 @@ RES folder is directory of exporting results (plot)
 Open and source "/WRK/PRG/Main.R" with R 3.6.1+
 Select data file to analyse
 Graphic plot is exporting in "WRK/RES"
+
+# METADATA
+Sexe
+	0 = females + males
+	1 = males
+	2 = females
+jour = date of notice
+hosp = Number of people currently hospitalized
+rea = Number of people currently in resuscitation or critical care
+rad = Total amount of patient that returned home
+dc = Total amout of deaths

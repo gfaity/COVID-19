@@ -36,37 +36,97 @@ setwd(PRG_DIR)                                        # select PRG_DIR as curren
 D = read.csv(fnameData, sep = ";")                    # file reading
 cat(paste("Data imported from : ", fnameData, "\n"))  # inform user
 
+###
+
+#correct bug in data
+D$jour[which(D$jour=="27/06/2020")] <- "2020-06-27"
+D$jour[which(D$jour=="28/06/2020")] <- "2020-06-28"
+D$jour[which(D$jour=="29/06/2020")] <- "2020-06-29"
+
+
 #######################################################################################################################
 # Arrange dataframe
-oldD = D
-D = D[which(D$sexe==0),]
-D$sexe = NULL
-D$hosp = NULL
-D$rad = NULL
-D$dc = NULL
+D = D[which(D$sexe==0),]              #delete sexes
+D$dep = as.factor(D$dep)              
+D = aggregate(. ~ jour, D, sum)       #delete departments
 
-#from long to wide
-D <- reshape(D, v.names = "rea", idvar = "jour",
-                timevar = "dep", direction = "wide")
 
-#Get name
-rownames(D) <- D$jour
-jour = D$jour
-D$jour = NULL
+####################
+#hospitalisation
+####################
 
-#delete last column (error)
-D = D[,-ncol(D)]
+#Prepare for export in PNG
+png(file=file.path(RES_DIR,"NbHosp.png"),
+    width=600, height=350)
 
-#Get sum of columns
-NbRea <- rowSums(D)
+#plot
+plot(D$hosp, xaxt = "n", xlab = "Date", ylab = "Number of person hospitalised in France")
+axis(1, at=c(0,50,100,150), labels=c(as.Date(D$jour[1]),as.Date(D$jour[51]),as.Date(D$jour[101]),as.Date(D$jour[151])))
+
+#export image in PNG
+dev.off()
+
+
+####################
+#reanimation
+####################
 
 #Prepare for export in PNG
 png(file=file.path(RES_DIR,"NbRea.png"),
     width=600, height=350)
 
 #plot
-plot(NbRea, xaxt = "n")
-axis(1, at=c(0,50,100,150), labels=c(as.Date(jour[1]),as.Date(jour[51]),as.Date(jour[101]),as.Date(jour[151])))
+plot(D$rea, xaxt = "n", xlab = "Date", ylab = "Number of person in reanimation in France")
+axis(1, at=c(0,50,100,150), labels=c(as.Date(D$jour[1]),as.Date(D$jour[51]),as.Date(D$jour[101]),as.Date(D$jour[151])))
 
 #export image in PNG
 dev.off()
+
+
+####################
+#return home #retour a domicile
+####################
+
+#Prepare for export in PNG
+png(file=file.path(RES_DIR,"NbRad.png"),
+    width=600, height=350)
+
+#plot
+plot(D$rad, xaxt = "n", xlab = "Date", ylab = "Number of person returned home in France")
+axis(1, at=c(0,50,100,150), labels=c(as.Date(D$jour[1]),as.Date(D$jour[51]),as.Date(D$jour[101]),as.Date(D$jour[151])))
+
+#export image in PNG
+dev.off()
+
+####################
+#return home #retour a domicile
+####################
+
+#Prepare for export in PNG
+png(file=file.path(RES_DIR,"NbRad.png"),
+    width=600, height=350)
+
+#plot
+plot(D$rad, xaxt = "n", xlab = "Date", ylab = "Number of person returned home in France")
+axis(1, at=c(0,50,100,150), labels=c(as.Date(D$jour[1]),as.Date(D$jour[51]),as.Date(D$jour[101]),as.Date(D$jour[151])))
+
+#export image in PNG
+dev.off()
+
+
+####################
+#deaths #deces
+####################
+
+#Prepare for export in PNG
+png(file=file.path(RES_DIR,"NbDC.png"),
+    width=600, height=350)
+
+#plot
+plot(D$dc, xaxt = "n", xlab = "Date", ylab = "Number of deaths in France")
+axis(1, at=c(0,50,100,150), labels=c(as.Date(D$jour[1]),as.Date(D$jour[51]),as.Date(D$jour[101]),as.Date(D$jour[151])))
+
+#export image in PNG
+dev.off()
+
+
