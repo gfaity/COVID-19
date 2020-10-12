@@ -80,13 +80,19 @@ nDpt = 84
 RunAnalysis(Dfull, Dpt, nDpt, InPrct = TRUE)
 RunAnalysis(Dfull, Dpt, nDpt, InPrct = FALSE)
 
-#Vaucluse
+#Bouche du rhone
 Dpt = "Bouche du Rhone"
 nDpt = 13
 RunAnalysis(Dfull, Dpt, nDpt, InPrct = TRUE)
 RunAnalysis(Dfull, Dpt, nDpt, InPrct = FALSE)
 
-#Find the department with max rea
+#Bouche du rhone
+Dpt = "Gard"
+nDpt = 30
+RunAnalysis(Dfull, Dpt, nDpt, InPrct = TRUE)
+RunAnalysis(Dfull, Dpt, nDpt, InPrct = FALSE)
+
+#Find the department with max rea (worse department)
 nDpt = Dfull$dep[which(Dfull$rea==max(Dfull$rea))]
 Dpt = as.character(nDpt)
 RunAnalysis(Dfull, Dpt, nDpt, InPrct = TRUE)
