@@ -41,90 +41,53 @@ D$jour[which(D$jour=="27/06/2020")] <- "2020-06-27"
 D$jour[which(D$jour=="28/06/2020")] <- "2020-06-28"
 D$jour[which(D$jour=="29/06/2020")] <- "2020-06-29"
 
+# Arrange dataframe
+D = D[which(D$sexe==0),]            #delete sexes
+D$dep = as.factor(D$dep)              
+Dfull = D                            #save for later use
 
 #######################################################################################################################
-# Arrange dataframe
-D = D[which(D$sexe==0),]              #delete sexes
-D$dep = as.factor(D$dep)              
-D = aggregate(. ~ jour, D, sum)       #delete departments
+#Ask for scale
+# TRUE = results exprimed in person per 100 000 of population of department
+# FALSE = scale is department specific
+#InPrct = TRUE #FALSE
+#######################################################################################################################
 
+#Begin plots
+# For each department, ask to run analysis in
 
-####################
-#hospitalisation
-####################
+#France
+Dpt = "France"
+nDpt = 0
+RunAnalysis(Dfull, Dpt, nDpt, InPrct = TRUE) #if (missing (SameScale)) {SameScale=FALSE}
+RunAnalysis(Dfull, Dpt, nDpt, InPrct = FALSE)
 
-#Prepare for export in PNG
-png(file=file.path(RES_DIR,"NbHosp.png"),
-    width=600, height=350)
+#Herault
+Dpt = "Herault"
+nDpt = 34
+RunAnalysis(Dfull, Dpt, nDpt, InPrct = TRUE)
+RunAnalysis(Dfull, Dpt, nDpt, InPrct = FALSE)
 
-#plot
-plot(D$hosp, xaxt = "n", xlab = "Date", ylab = "Number of person hospitalised in France")
-axis(1, at=c(0,50,100,150), labels=c(as.Date(D$jour[1]),as.Date(D$jour[51]),as.Date(D$jour[101]),as.Date(D$jour[151])))
+#Charente
+Dpt = "Charente"
+nDpt = 16
+RunAnalysis(Dfull, Dpt, nDpt, InPrct = TRUE)
+RunAnalysis(Dfull, Dpt, nDpt, InPrct = FALSE)
 
-#export image in PNG
-dev.off()
+#Vaucluse
+Dpt = "Vaucluse"
+nDpt = 84
+RunAnalysis(Dfull, Dpt, nDpt, InPrct = TRUE)
+RunAnalysis(Dfull, Dpt, nDpt, InPrct = FALSE)
 
+#Vaucluse
+Dpt = "Bouche du Rhone"
+nDpt = 13
+RunAnalysis(Dfull, Dpt, nDpt, InPrct = TRUE)
+RunAnalysis(Dfull, Dpt, nDpt, InPrct = FALSE)
 
-####################
-#reanimation
-####################
-
-#Prepare for export in PNG
-png(file=file.path(RES_DIR,"NbRea.png"),
-    width=600, height=350)
-
-#plot
-plot(D$rea, xaxt = "n", xlab = "Date", ylab = "Number of person in reanimation in France")
-axis(1, at=c(0,50,100,150), labels=c(as.Date(D$jour[1]),as.Date(D$jour[51]),as.Date(D$jour[101]),as.Date(D$jour[151])))
-
-#export image in PNG
-dev.off()
-
-
-####################
-#return home #retour a domicile
-####################
-
-#Prepare for export in PNG
-png(file=file.path(RES_DIR,"NbRad.png"),
-    width=600, height=350)
-
-#plot
-plot(D$rad, xaxt = "n", xlab = "Date", ylab = "Number of person returned home in France")
-axis(1, at=c(0,50,100,150), labels=c(as.Date(D$jour[1]),as.Date(D$jour[51]),as.Date(D$jour[101]),as.Date(D$jour[151])))
-
-#export image in PNG
-dev.off()
-
-####################
-#return home #retour a domicile
-####################
-
-#Prepare for export in PNG
-png(file=file.path(RES_DIR,"NbRad.png"),
-    width=600, height=350)
-
-#plot
-plot(D$rad, xaxt = "n", xlab = "Date", ylab = "Number of person returned home in France")
-axis(1, at=c(0,50,100,150), labels=c(as.Date(D$jour[1]),as.Date(D$jour[51]),as.Date(D$jour[101]),as.Date(D$jour[151])))
-
-#export image in PNG
-dev.off()
-
-
-####################
-#deaths #deces
-####################
-
-#Prepare for export in PNG
-png(file=file.path(RES_DIR,"NbDC.png"),
-    width=600, height=350)
-
-#plot
-plot(D$dc, xaxt = "n", xlab = "Date", ylab = "Number of deaths in France")
-axis(1, at=c(0,50,100,150), labels=c(as.Date(D$jour[1]),as.Date(D$jour[51]),as.Date(D$jour[101]),as.Date(D$jour[151])))
-
-#export image in PNG
-dev.off()
-
-
+#Find the department with max rea
+nDpt = Dfull$dep[which(Dfull$rea==max(Dfull$rea))]
+Dpt = as.character(nDpt)
+RunAnalysis(Dfull, Dpt, nDpt, InPrct = TRUE)
+RunAnalysis(Dfull, Dpt, nDpt, InPrct = FALSE)
