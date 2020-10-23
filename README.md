@@ -71,3 +71,7 @@ hosp = Number of people currently hospitalized
 rea = Number of people currently in resuscitation or critical care
 rad = Total amount of patient that returned home
 dc = Total amout of deaths
+
+# SEE ALSO
+France : https://www.francetvinfo.fr/sante/maladie/coronavirus/infographies-covid-19-morts-hospitalisations-age-malades-l-evolution-de-l-epidemie-en-france-et-dans-le-monde-en-cartes-et-graphiques.html
+Worldwide : https://gisanddata.maps.arcgis.com/apps/opsdashboard/index.html?fbclid=IwAR0191UQgOgutZCVbML51s9chjkUM_JKbQPVOjVEVC8n6mnEO_epIJDve-4#/bda7594740fd40299423467b48e9ecf6
