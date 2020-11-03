@@ -11,8 +11,17 @@ Affiche quelques données du COVID-19
 "WRK/RES/NbDC.png" est le nombre de patient decede en France (cumul)
 
 # SOURCE DES DONNEES
-https://www.data.gouv.fr/fr/datasets/r/63352e38-d353-4b54-bfd1-f1b3ee1cabd7
-https://www.data.gouv.fr/fr/datasets/donnees-hospitalieres-relatives-a-lepidemie-de-covid-19/
+Data de base brutes : https://www.data.gouv.fr/fr/datasets/donnees-hospitalieres-relatives-a-lepidemie-de-covid-19/
+---
+Indicateurs de suivis: https://www.data.gouv.fr/fr/datasets/indicateurs-de-suivi-de-lepidemie-de-covid-19/
+Tests virologiques: https://www.data.gouv.fr/fr/datasets/donnees-relatives-aux-resultats-des-tests-virologiques-covid-19/
+Dépistage COVID: https://www.data.gouv.fr/fr/datasets/donnees-relatives-aux-tests-de-depistage-de-covid-19-realises-en-laboratoire-de-ville/
+Exces de mortalité: https://www.data.gouv.fr/fr/datasets/niveaux-dexces-de-mortalite-standardise-durant-lepidemie-de-covid-19/
+Taux d'incidence : https://www.data.gouv.fr/fr/datasets/taux-dincidence-de-lepidemie-de-covid-19/
+---
+Toutes les données liées à la COVID-19: https://www.data.gouv.fr/fr/organizations/sante-publique-france/
+Nombres de lits de réanimations entre 2013 et 2018 : https://drees.solidarites-sante.gouv.fr/etudes-et-statistiques/publications/article/nombre-de-lits-de-reanimation-de-soins-intensifs-et-de-soins-continus-en-france
+
 
 # INFRASTRUCTURE
 Le repertoire DAT contient les jeux de donnees
