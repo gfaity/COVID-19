@@ -18,7 +18,7 @@ plotDC <- function(D, Dpt, scale, Hab){
     Prct = "per100000_"
   }
   png(file=file.path(RES_DIR,paste(Prct,Dpt,"_NbDC.png", sep =""), sep=""),
-      width=600, height=350)
+      width=900, height=525, res=90)
   
   #plot
   if (is_empty(scale)) {
@@ -27,7 +27,8 @@ plotDC <- function(D, Dpt, scale, Hab){
     plot(D$dc/Hab, xaxt = "n", xlab = "Date", ylab = "", ylim = scale)
     title(ylab=paste("Number of deaths in ",Dpt,"\n(Persons per 100 000 inhabitants)", sep=""), line=2)
   }
-  axis(1, at=c(0,50,100,150), labels=c(as.Date(D$jour[1]),as.Date(D$jour[51]),as.Date(D$jour[101]),as.Date(D$jour[151])))
+  par(las=2) #make axis label perpendicular to the axis
+  axis(1, cex.axis=0.7, at=c(0,55,100,150,200,213,225,length(D$jour)), labels=c(as.character(paste(D$jour[1],"\nConfinement")),as.character(paste(D$jour[56],"\nDeconfinement")),as.character(D$jour[101]),as.character(D$jour[151]),as.character(D$jour[201]),as.character(paste(D$jour[214],"\ncouvre-feu")),as.character(paste(D$jour[226],"\nreconfinement")),as.character(D$jour[length(D$jour)])))
   
   #export image in PNG
   dev.off()
