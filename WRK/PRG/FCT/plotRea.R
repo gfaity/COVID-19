@@ -29,7 +29,8 @@ plotRea <- function(D, Dpt, scale, Hab){
   }
   #axis(1, at=c(0,50,100,150,200), labels=c(as.Date(D$jour[1]),as.Date(D$jour[51]),as.Date(D$jour[101]),as.Date(D$jour[151]),as.Date(D$jour[201])))  
   par(las=2) #make axis label perpendicular to the axis
-  axis(1, cex.axis=0.7, at=c(0,55,100,150,200,213,225,length(D$jour)), labels=c(as.character(paste(D$jour[1],"\nConfinement")),as.character(paste(D$jour[56],"\nDeconfinement")),as.character(D$jour[101]),as.character(D$jour[151]),as.character(D$jour[201]),as.character(paste(D$jour[214],"\ncouvre-feu")),as.character(paste(D$jour[226],"\nreconfinement")),as.character(D$jour[length(D$jour)])))
+  axis(1, cex.axis=0.7, at=c(0,55,100,150,200,213,225,273,length(D$jour)), labels=c(as.character(paste(D$jour[1],"\nConfinement1")),as.character(paste(D$jour[56],"\nDeconfinement1")),as.character(D$jour[101]),as.character(D$jour[151]),as.character(D$jour[201]),as.character(paste(D$jour[214],"\nCouvre-feu")),as.character(paste(D$jour[226],"\nConfinement2")),as.character(paste(D$jour[273],"\nDéconfinement2")),as.character(D$jour[length(D$jour)])))
+  
   
   #export image in PNG
   dev.off()

@@ -92,6 +92,12 @@ nDpt = 30
 RunAnalysis(Dfull, Dpt, nDpt, InPrct = TRUE)
 RunAnalysis(Dfull, Dpt, nDpt, InPrct = FALSE)
 
+#Bas-rhin
+Dpt = "Bas-Rhin"
+nDpt = 67
+RunAnalysis(Dfull, Dpt, nDpt, InPrct = TRUE)
+RunAnalysis(Dfull, Dpt, nDpt, InPrct = FALSE)
+
 #Find the department with max rea (worse department)
 nDpt = Dfull$dep[which(Dfull$rea==max(Dfull$rea))]
 Dpt = as.character(nDpt)
