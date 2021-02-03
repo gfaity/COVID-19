@@ -22,6 +22,8 @@ Taux d'incidence : https://www.data.gouv.fr/fr/datasets/taux-dincidence-de-lepid
 Toutes les données liées à la COVID-19: https://www.data.gouv.fr/fr/organizations/sante-publique-france/
 Nombres de lits de réanimations entre 2013 et 2018 : https://drees.solidarites-sante.gouv.fr/etudes-et-statistiques/publications/article/nombre-de-lits-de-reanimation-de-soins-intensifs-et-de-soins-continus-en-france
 
+# VEILLE BIBLIOGRAPHIQUE
+CNRS: https://modcov19.math.cnrs.fr/veille_public/?fbclid=IwAR3GfxnPc4xtBCsyUAe8OShcjRWKTa70xNW31axT0EYogDo-9IYAVqLnIPk
 
 # INFRASTRUCTURE
 Le repertoire DAT contient les jeux de donnees
